@@ -1,224 +1,105 @@
 {
-  "name": "Your Name",
-  "label": "Optional Label",
-  "image_path": "img/default-image.png",
+  "name": "Aurea Mariana Gallegos Gloria",
+  "label": "Python Developer (Career Transition)",
+  "image_path": "portfolio_media/profile.jpg",
   "contact": {
-    "email": "FirstLast@Sample.com",
-    "phone": "123-456-7890",
-    "location": "City, State, Country"
+    "email": "mundo.amigos@icloud.com",
+    "phone": "+49 151 16934843",
+    "location": "Hamburg, Germany"
   },
-  "summary": "A short summary of who you are, your background, experience, and interests to give visitors a quick introduction to you.",
-  "base_url": "127.0.0.1:5500",
-  "social_links": [
-    {
-      "label": "Personal Website",
-      "url": "https://sample.com",
-      "svg_path": "img/globe.svg"
-    },
-    {
-      "label": "First Social",
-      "url": "https://sample.com",
-      "svg_path": "img/linkedin.svg"
-    },
-    {
-      "label": "Second Social",
-      "url": "https://sample.com",
-      "svg_path": "img/github.svg"
-    }
-  ],
+  "base_url": "https://mariana-gg.github.io",
+  "summary": "Recent graduate of intensive Python backend training seeking junior roles. Combines 17+ years of analytical problem-solving with emerging technical skills in clean code practices and collaborative development.",
   "work_experience": [
     {
-      "company": "Latest Job",
-      "position": "Position One",
-      "url": "https://sample.com",
-      "start_date": "01/01/2020",
-      "end_date": "Present",
-      "summary": "Short summary about present job and what the position entails",
+      "company": "Organizational Collaborations & Independent Projects",
+      "position": "Preventive Psychoeducational Consultant",
+      "start_date": "02/2007",
+      "end_date": "08/2024",
       "highlights": [
-        "First Duty of Current Job",
-        "Second Duty of Current Job",
-        "Third Duty of Current Job"
-      ]
-    },
-    {
-      "company": "Previous Job",
-      "position": "Position Two",
-      "url": "https://sample.com",
-      "start_date": "01/01/2010",
-      "end_date": "01/01/2020",
-      "summary": "Short summary about previous job and what that position entailed",
-      "highlights": [
-        "First Duty of Previous Job",
-        "Second Duty of Previous Job",
-        "Third Duty of Previous Job"
+        "Applied statistical analysis to behavioral data (Python-assisted processing)",
+        "Designed digital programs blending technical and therapeutic best practices",
+        "Led cross-functional teams in solution development cycles"
       ]
     }
   ],
   "projects": [
     {
-      "title": "My First Project",
-      "summary": "Short summary about my first project",
-      "url": "https://sample.com",
+      "title": "Psychology Diagnostic Quiz",
+      "dates": "02/2025 - 04/2025",
+      "technologies": ["Python", "Django ORM", "SQL"],
       "highlights": [
-        "First Highlight of Project One",
-        "Second Highlight of Project One",
-        "Third Highlight of Project One"
-      ],
-      "images": [
-        {
-          "img_path": "https://picsum.photos/600/338?random=1",
-          "caption": "Image Caption 1"
-        },
-        {
-          "img_path": "https://picsum.photos/600/338?random=2",
-          "caption": "Image Caption 2"
-        },
-        {
-          "img_path": "https://picsum.photos/600/338?random=3",
-          "caption": "Image Caption 3"
-        }
+        "Engineered SQL queries for dynamic content delivery",
+        "Resolved atomic transaction challenges",
+        "Iteratively improved UI/UX based on testing"
       ]
     },
     {
-      "title": "My Second Project",
-      "summary": "Short summary about my second project",
-      "url": "https://sample.com",
+      "title": "CLI Warehouse Manager",
+      "dates": "11/2024 - 01/2025",
+      "technologies": ["Python", "OOP", "CLI"],
       "highlights": [
-        "First Highlight of Project Two",
-        "Second Highlight of Project Two",
-        "Third Highlight of Project Two"
-      ],
-      "images": [
-        {
-          "img_path": "https://picsum.photos/600/338?random=4",
-          "caption": "Image Caption 4"
-        },
-        {
-          "img_path": "https://picsum.photos/600/338?random=5",
-          "caption": "Image Caption 5"
-        },
-        {
-          "img_path": "https://picsum.photos/600/338?random=6",
-          "caption": "Image Caption 6"
-        }
-      ]
-    }
-  ],
-  "volunteer_experience": [
-    {
-      "organization": "Latest Organization",
-      "position": "Position One",
-      "url": "https://sample.com",
-      "start_date": "01/01/2020",
-      "end_date": "Present",
-      "summary": "Short summary about present volunteer work",
-      "highlights": [
-        "First Duty of Current Organization",
-        "Second Duty of Current Organization",
-        "Third Duty of Current Organization"
+        "Implemented role-based access control system",
+        "Collaborated via Jira/Scrum in team environment",
+        "Mastered Git conflict resolution workflows"
       ]
     },
     {
-      "organization": "Previous Organization",
-      "position": "Position Two",
-      "url": "https://sample.com",
-      "start_date": "01/01/2010",
-      "end_date": "01/01/2020",
-      "summary": "Short summary about previous volunteer work",
+      "title": "Banking Portal Simulator",
+      "dates": "10/2024 - 03/2025",
+      "technologies": ["Python", "Security", "CLI"],
       "highlights": [
-        "First Duty of Previous Organization",
-        "Second Duty of Previous Organization",
-        "Third Duty of Previous Organization"
+        "Integrated password hashing protocols",
+        "Debugged complex transaction workflows",
+        "Maintained PEP8-compliant codebase"
       ]
     }
   ],
   "education": [
     {
-      "institution": "Institution One",
-      "location": "Institution One Location",
-      "url": "https://sample.com",
-      "degrees": [
-        "Master of Science in Computer Science",
-        "Minor in Mathematics"
-      ],
-      "honors": ["Outstanding Student Award", "Dean's List"],
-      "gpa_cumulative": "3.5",
-      "gpa_major": "4.0",
-      "graduation_date": "01/01/2005"
-    },
-    {
-      "institution": "Institution Two",
-      "location": "Institution Two Location",
-      "url": "https://sample.com",
-      "degrees": ["Bachelor of Science in Physics"],
-      "honors": ["Scholarship Recipient"],
-      "gpa_cumulative": "3.2",
-      "gpa_major": "3.9",
-      "graduation_date": "01/01/2000"
-    }
-  ],
-  "skills": [
-    {
-      "name": "My First Skill",
-      "proficiency": 100,
-      "proficiency_label": "Proficiency Level"
-    },
-    {
-      "name": "My Second Skill",
-      "proficiency": 80,
-      "proficiency_label": "Proficiency Level"
-    }
-  ],
-  "interests": [
-    {
-      "name": "My First Hobby",
-      "summary": "Short summary about my first Hobby",
-      "images": [
-        {
-          "img_path": "https://picsum.photos/600/338?random=7",
-          "caption": "Image Caption 7"
-        },
-        {
-          "img_path": "https://picsum.photos/600/338?random=8",
-          "caption": "Image Caption 8"
-        }
+      "institution": "DCI Digital Career Institute GmbH",
+      "degree": "Advanced Python Backend Programming",
+      "dates": "08/2024 - 08/2025",
+      "highlights": [
+        "Developed modular applications following PEP8 standards",
+        "Practiced REST API development fundamentals",
+        "Collaborated on team-based software projects"
       ]
     },
     {
-      "name": "My Second Hobby",
-      "summary": "Short summary about my second hobby",
-      "images": [
-        {
-          "img_path": "https://picsum.photos/600/338?random=9",
-          "caption": "Image Caption 9"
-        },
-        {
-          "img_path": "https://picsum.photos/600/338?random=10",
-          "caption": "Image Caption 10"
-        }
+      "institution": "UVM Universidad del Valle de México",
+      "degree": "Clinical Psychology",
+      "dates": "06/2011 - 05/2015",
+      "highlights": [
+        "Advanced statistical analysis certification",
+        "Neuroscientific research methodology",
+        "Data-driven client assessment techniques"
       ]
     }
   ],
+  "skills": {
+    "Theoretical Knowledge": [
+      {"name": "Python", "level": "Advanced (Learning Application)"},
+      {"name": "Django REST", "level": "Advanced (Learning Application)"},
+      {"name": "AWS Cloud", "level": "Intermediate (Learning Application)"},
+      {"name": "SQL", "level": "Advanced (Learning Application)"}
+    ],
+    "Practical Application": [
+      {"name": "Python", "level": "40% (Junior Implementation)"},
+      {"name": "SQL", "level": "35% (Basic Projects)"},
+      {"name": "Django REST", "level": "30% (Learning Integration)"},
+      {"name": "AWS Cloud", "level": "25% (Fundamental Understanding)"}
+    ],
+    "Core Strengths": [
+      "Analytical Problem Solving (17+ years)",
+      "Data Interpretation & Visualization",
+      "Cross-functional Team Leadership",
+      "User-Centric Solution Design"
+    ]
+  },
   "languages": [
-    {
-      "language": "English",
-      "fluency": "Native speaker"
-    },
-    {
-      "language": "American Sign Language",
-      "fluency": "Professional Working Proficiency"
-    }
-  ],
-  "references": [
-    {
-      "name": "Person One",
-      "relation": "Previous Boss",
-      "reference": "Some nice things that Person One said about you, your work ethic, and how you provided value to their team."
-    },
-    {
-      "name": "Person Two",
-      "relation": "Previous Coworker",
-      "reference": "More kind things that Person Two said about you, what it was like working with you, and things you've accomplished."
-    }
+    {"language": "German", "fluency": "Professional"},
+    {"language": "Spanish", "fluency": "Native"},
+    {"language": "English", "fluency": "Professional"},
+    {"language": "Portuguese", "fluency": "Fluent"}
   ]
 }
