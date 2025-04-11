@@ -1,53 +1,60 @@
 import json
-import os
-from datetime import datetime, timezone
 from pathlib import Path
+from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader
 
-# === PATH CONFIGURATION ===
-TEMPLATE_DIR = Path('./templates')  # HTML templates location
-STATIC_DIR = Path('./static')       # CSS/JS/images location
-DATA_FILE = Path('portfolio-mariana.json')  # Your custom data file
-OUTPUT_DIR = Path('.')              # Where to save generated files
-# ==========================
+# Configuration matching your tree
+BASE_DIR = Path(__file__).parent
+TEMPLATE_DIR = BASE_DIR  # Templates are in root
+STATIC_DIR = BASE_DIR    # CSS/JS in root
+DATA_FILE = BASE_DIR / "portfolio-mariana.json"
+OUTPUT_DIR = BASE_DIR
 
-def main():
-    # Load and prepare data
+def load_profile_data():
+    """Load and enhance portfolio data"""
     with DATA_FILE.open(encoding="utf-8") as f:
         data = json.load(f)
-
-    # Add dynamic content
+    
+    # Add dynamic year
     data["current_year"] = datetime.now(timezone.utc).year
     
-    # Process social links SVGs
-    if "social_links" in data:
-        for link in data["social_links"]:
-            if svg_path := link.get("svg_path"):
-                full_svg_path = STATIC_DIR / svg_path
-                with full_svg_path.open(encoding="utf-8") as svg_file:
-                    link["svg_data"] = svg_file.read()
+    # Process profile image path
+    if "image_path" in data:
+        data["profile_image"] = str(Path(data["image_path"]).relative_to(BASE_DIR)
+    
+    return data
 
-    # Configure template environment
-    env = Environment(
+def setup_jinja():
+    """Configure template environment"""
+    return Environment(
         loader=FileSystemLoader(TEMPLATE_DIR),
-        autoescape=True
+        autoescape=True,
+        trim_blocks=True,
+        lstrip_blocks=True
     )
 
-    # Render templates
+def render_templates(env, data):
+    """Generate output files"""
     index_template = env.get_template("index_template.html")
     resume_template = env.get_template("resume_template.html")
-
-    # Generate output files
-    output_paths = {
+    
+    return {
         OUTPUT_DIR / "index.html": index_template.render(**data),
         OUTPUT_DIR / "resume.html": resume_template.render(**data)
     }
 
-    for path, content in output_paths.items():
-        with path.open("w", encoding="utf-8") as f:
-            f.write(content)
-
-    print(f"Success! Generated files in {OUTPUT_DIR.resolve()}")
+def main():
+    print("🚀 Generating portfolio...")
+    
+    data = load_profile_data()
+    env = setup_jinja()
+    outputs = render_templates(env, data)
+    
+    for path, content in outputs.items():
+        path.write_text(content, encoding="utf-8")
+        print(f"✅ Generated: {path.relative_to(BASE_DIR)}")
+    
+    print("🎉 Success! Open index.html in your browser")
 
 if __name__ == "__main__":
     main()
