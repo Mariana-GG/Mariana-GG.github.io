@@ -1,40 +1,53 @@
 import json
-from datetime import UTC, datetime
+import os
+from datetime import datetime, timezone
 from pathlib import Path
-
 from jinja2 import Environment, FileSystemLoader
 
-# Load JSON data
-with Path("portfolio.json").open(encoding="utf-8") as f:
-    data = json.load(f)
+# === PATH CONFIGURATION ===
+TEMPLATE_DIR = Path('./templates')  # HTML templates location
+STATIC_DIR = Path('./static')       # CSS/JS/images location
+DATA_FILE = Path('portfolio-mariana.json')  # Your custom data file
+OUTPUT_DIR = Path('.')              # Where to save generated files
+# ==========================
 
-# Add any extra context if needed
-data["current_year"] = datetime.now(tz=UTC).year
+def main():
+    # Load and prepare data
+    with DATA_FILE.open(encoding="utf-8") as f:
+        data = json.load(f)
 
-if "social_links" in data:
-    for link in data["social_links"]:
-        if link.get("svg_path"):
-            with Path(link["svg_path"]).open(encoding="utf-8") as svg_file:
-                link["svg_data"] = svg_file.read()
+    # Add dynamic content
+    data["current_year"] = datetime.now(timezone.utc).year
+    
+    # Process social links SVGs
+    if "social_links" in data:
+        for link in data["social_links"]:
+            if svg_path := link.get("svg_path"):
+                full_svg_path = STATIC_DIR / svg_path
+                with full_svg_path.open(encoding="utf-8") as svg_file:
+                    link["svg_data"] = svg_file.read()
 
-# Set up Jinja environment
-env = Environment(loader=FileSystemLoader("."), autoescape=True)
-index_template = env.get_template("index_template.html")
-resume_template = env.get_template("resume_template.html")
+    # Configure template environment
+    env = Environment(
+        loader=FileSystemLoader(TEMPLATE_DIR),
+        autoescape=True
+    )
 
-# Render the template with the data
-html_output = index_template.render(**data)
-resume_output = resume_template.render(**data)
+    # Render templates
+    index_template = env.get_template("index_template.html")
+    resume_template = env.get_template("resume_template.html")
 
-# This is equivalent to...
-# html_output = index_template.render(name=data["name"], label=data["label"]...)
-# resume_output = resume_template.render(name=data["name"], label=data["label"]...)
+    # Generate output files
+    output_paths = {
+        OUTPUT_DIR / "index.html": index_template.render(**data),
+        OUTPUT_DIR / "resume.html": resume_template.render(**data)
+    }
 
-# Write the output to an HTML file
-with Path("index.html").open("w", encoding="utf-8") as f:
-    f.write(html_output)
+    for path, content in output_paths.items():
+        with path.open("w", encoding="utf-8") as f:
+            f.write(content)
 
-with Path("resume.html").open("w", encoding="utf-8") as f:
-    f.write(resume_output)
+    print(f"Success! Generated files in {OUTPUT_DIR.resolve()}")
 
-print("HTML file generated successfully!")
+if __name__ == "__main__":
+    main()
